@@ -1,0 +1,101 @@
+Goal- Create a one page simple web tool for creating profile images that are cross-compatible between platforms.
+I want to create a profile image that will be able to be used for as many platforms as possible. First goal is
+to determine all of the specs for the profile images that I want to provide profile images for my tool.
+
+Facebook:
+180 x 180
+
+Twitter:
+400 x 400
+
+Youtube:
+800 x 800
+
+Tik Tok:
+100 x 100
+
+Instagram:
+110 x 110
+
+Pinterest:
+165 x 165
+
+Tumblr:
+128 x 128
+
+Linkedin:
+400 x 400
+
+Whatsapp:
+500 x 500
+
+Reddit:
+256x256
+
+Twitch:
+800 x 800
+
+This program will allow someone to upload a picture and change the location of the center of the circle so that 
+they can see how the image will look on each and every platform. They can also see which platform will take each image.
+If the image is too small for a platform, they will be told what problems are arising with the image. This will
+allow a user to maintain consistent images across each platform that they are using their profile images for. Maintaining
+consistency is important for allowing their users to recognize and understand that the person they saw on one
+platform is the same on the another one. 
+
+How it will work. User will upload an image, system will notify user if the image is large enough or not. If it
+meets the minimum requirement, it will be allowed. If not, the user will be notified to upload a different image.
+If the user uploads the image successfully, then the user will center where they want the circle of the profile
+image to be placed on the image. Each different platform will be shown all on one page so that the user has quick access
+to see exactly and quickly how the image will look on each platform. The user will then hit the submit button once
+they have selected where they want to have the profile image taken from the uploaded image given. After that, the user
+will then be sent to a page where they can download each image for each platform.
+
+The functionality of this systemw will be a micro-services system broken up into 2 different parts. One system
+that will be running on a separate server that will handle requests given to it to edit images in a timely fashion,
+and another system that will be running the webserver for users to create and send images to the image editing system.
+This will allow for the website and the image editing systems to run separately so that if the image editing is currently
+not working, the website will still work and vice-versa. 
+
+Eventually, this system may incorporate a database system too such that it will the database, image editing and the
+website will all be separate services. Also, if an app were to be created for the iOS and Android devices,
+de-coupling the image editing and database from the website will make it easier to create apps that will only need
+to communicate with the image editing service instead of having to recreate each one on each separate application.
+
+ 
+
+
+Future Features if Main Functionality Completed:
+
+- Register, Sign in, etc.
+
+- Upload button that integrates with all platforms for the user. Allows them to upload the profile image to each platform
+of their choice.
+
+- Allow the user to create different header images that are cross-compatible between platforms too. 
+
+- Allow the user to create mix-in images where the profile image interacts with the header image so that it 
+looks a lot more interesting than the average account. 
+
+
+
+
+Use Cases:
+
+
+
+Facebook Image Editor
+Twitter Image Editor
+Youtube Image Editor
+Tik Tok Image Editor
+Instagram Image Editor
+Pinterest Image Editor
+Tumblr Image Editor
+Linkedin Image Editor
+Whatsapp Image Editor
+Reddit Image Editor
+Twitch Image Editor
+
+After creating a python class for editors that will edit an image for each platform centered around a certain point, 
+create a flask website that will first, allow a user to upload an image, second, allow a user to select the point of center that they want the image
+to be centered at. Third, allow the user to click a submit button that will send them to a page to download their images.
+
