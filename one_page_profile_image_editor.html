@@ -5,8 +5,8 @@
     <div id="textnode">Drop anywhere!</div>
 </div>
 <div id=text>Drag a file anywhere</div>
-<canvas id="image_canvas_overlay">
-<div id="gallery"></div>
+<canvas id="image_canvas_overlay"></canvas>
+<div id="profile_image_location"></div>
 
 <table>
 	<tr>
@@ -109,7 +109,8 @@ function previewFile(file) {
   reader.onloadend = function() {
     let img = document.createElement('img')
     img.src = reader.result
-    document.getElementById('gallery').appendChild(img)
+	img.id = "profile_image"
+    document.getElementById('profile_image_location').appendChild(img)
   }
 }
 
@@ -118,7 +119,6 @@ function previewFile(file) {
 
     document.onmousemove = handleMouseMove;
     function handleMouseMove(event) {
-      var dot, eventDoc, doc, body, pageX, pageY;
       
       event = event || window.event; // IE-ism
       
@@ -145,5 +145,30 @@ function previewFile(file) {
     }
   })();
   
-  function
+function overlayCanvasOnImage() {
+	var canvas_overlay = document.getElementById("image_canvas_overlay");
+	var image = document.getElementById("profile_image");
+	
+	var image_position = getPosition(image);
+	canvas_overlay.width = image.naturalWidth;
+	canvas_overlay.height = image.naturalHeight;
+	
+
+}
+
+function getPosition(el) {
+/* Gets the position of an element and returns the x and y positions. */
+  var xPosition = 0;
+  var yPosition = 0;
+ 
+  while (el) {
+    xPosition += (el.offsetLeft - el.scrollLeft + el.clientLeft);
+    yPosition += (el.offsetTop - el.scrollTop + el.clientTop);
+    el = el.offsetParent;
+  }
+  return {
+    x: xPosition,
+    y: yPosition
+  };
+}      
 </script>
